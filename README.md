@@ -2,13 +2,13 @@
      width="30%"
      style="padding: 10px">
 
-# << Título do projeto >>
+# << Banco arT >>
 
-## << Descrição breve do domínio do problema >>
+## << Aplicativo do banco e suas funcionalidades >>
 
 > Repositório destinado para o desenvolvimento do projeto final da discipliana PRG22107 - Programação orienta a objeto. 
 > 
-> Aluno: Nome do aluno  
+> Aluno: Arthur Duarte Iaczinski
 > Professor: Hugo Marcondes
 
 <p align=center><strong>SUMÁRIO</strong></p>

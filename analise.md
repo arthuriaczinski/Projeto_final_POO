@@ -7,14 +7,22 @@ O foco é fornecer uma plataforma onde os usuários possam gerenciar seu dinheir
 01 - Cadastro de clientes;
 
 02 - Autenticação de clientes;
+
 03 - Dashboard principal (saldo/fatura);
+
 04 - Extrato;
+
 05 - Operações básicas (Pix/TED/Home broker);
+
 ## Requisitos não funcionais
 Requisitos não funcionais
+
 01 - Código será escrito em C++;
+
 02 - Interface minimalista e simples;
+
 03 - Informações devem ser armazenadas em um .TXT;
+
 04 - Código deve garantir segurança na autenticação;
 
 ## Diagrama de Casos de Uso

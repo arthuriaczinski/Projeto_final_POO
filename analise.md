@@ -5,6 +5,7 @@ O foco é fornecer uma plataforma onde os usuários possam gerenciar seu dinheir
 
 ## Requisitos funcionais 
 01 - Cadastro de clientes;
+
 02 - Autenticação de clientes;
 03 - Dashboard principal (saldo/fatura);
 04 - Extrato;

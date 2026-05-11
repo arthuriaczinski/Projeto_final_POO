@@ -41,7 +41,9 @@ Representa o usuário que já passou pelo processo de autenticação, ou atravé
  
 ## Diagrama de Domínio do problema
 
-Elaborar um diagrama conceitual do domínio do problema.
+O Diagrama de Classes a seguir representa a estrutura do aplicativo do banco. Ele serve como o "esqueleto" do código C++, definindo as classes que farão o sistema funcionar, seus atributos e seus métodos.
+
+<img width="719" height="687" alt="Diagrama_de_classe_final_poo drawio" src="https://github.com/user-attachments/assets/8a25d5e5-cc54-4e8d-b966-0d2b583d4a8a" />
 
 
 <div align="center">

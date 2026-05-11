@@ -1,7 +1,10 @@
 # Projeto orientado a objeto
 
->[!NOTE]
->O **Projeto orientado a objeto** é composto pelas documentação do projeto descrito em UML. Deve incluir um Diagrama de Classes do sistema projetado, e pelo menos um diagrama de interação de um dos casos de uso. Outros diagramas podem ser apresentados, caso julgue necessário.
+## Diagrama de classe:
+<img width="719" height="687" alt="Diagrama_de_classe_final_poo drawio" src="https://github.com/user-attachments/assets/bba169fd-1bbd-4c15-b83e-ecf141e268db" />
+
+## Diagrama de caso de uso:
+<img width="266" height="681" alt="Caso_de_uso_POO_final drawio" src="https://github.com/user-attachments/assets/8936c5ea-2d1c-4814-84ce-ee5e1d3f63c0" />
 
 
 

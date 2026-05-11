@@ -33,7 +33,7 @@ Para representar adequadamente o controle de acesso e garantir a segurança do s
 ## - Visitante:
 Representa o estado inicial do usuário no aplicativo, onde o visitante deve obrigatoriamente se cadastrar ou realizar o login para interagir com o APP, caso contrário, não terá qualquer permissão ou acesso no APP.
 
-## - Cliente: 
+## - Cliente cadastrado: 
 Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator simula as tarefas reais do usuário que irá utilizar o APP.
 
 <img width="266" height="681" alt="Caso_de_uso_POO_final drawio" src="https://github.com/user-attachments/assets/1a203053-80cc-4675-b4fa-5aff5cb951fd" />

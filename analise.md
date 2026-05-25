@@ -34,7 +34,7 @@ Para representar adequadamente o controle de acesso e garantir a segurança do s
 Representa o estado inicial do usuário no aplicativo, onde o visitante deve obrigatoriamente se cadastrar ou realizar o login para interagir com o APP, caso contrário, não terá qualquer permissão ou acesso no APP.
 
 ## - Cliente cadastrado: 
-Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator simula as tarefas reais do usuário que irá utilizar o APP.
+Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator possui acesso completo a aplicação, simula um usário que já utiliza o programa.
 
 <img width="1280" height="3276" alt="Casos_de_uso" src="https://github.com/user-attachments/assets/48fa615a-a81c-4608-b808-fe63da49f063" />
  

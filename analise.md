@@ -36,15 +36,13 @@ Representa o estado inicial do usuário no aplicativo, onde o visitante deve obr
 ## - Cliente cadastrado: 
 Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator simula as tarefas reais do usuário que irá utilizar o APP.
 
-<img width="266" height="681" alt="Caso_de_uso_POO_final drawio" src="https://github.com/user-attachments/assets/1a203053-80cc-4675-b4fa-5aff5cb951fd" />
-
+<img width="1280" height="3276" alt="Casos_de_uso" src="https://github.com/user-attachments/assets/48fa615a-a81c-4608-b808-fe63da49f063" />
  
 ## Diagrama de Domínio do problema
 
 O Diagrama de Classes a seguir representa a estrutura do aplicativo do banco. Ele serve como o "esqueleto" do código C++, definindo as classes que farão o sistema funcionar, seus atributos e seus métodos.
 
-<img width="719" height="687" alt="Diagrama_de_classe_final_poo drawio" src="https://github.com/user-attachments/assets/8a25d5e5-cc54-4e8d-b966-0d2b583d4a8a" />
-
+<img width="2110" height="2016" alt="diagrama_de_classes" src="https://github.com/user-attachments/assets/8ef41228-5f3e-4a79-9a94-88d1054d3456" />
 
 <div align="center">
 

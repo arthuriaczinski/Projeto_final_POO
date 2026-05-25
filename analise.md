@@ -42,6 +42,12 @@ Representa o usuário que já passou pelo processo de autenticação, ou atravé
 
 O Diagrama de Classes a seguir representa a estrutura do aplicativo do banco. Ele serve como o "esqueleto" do código C++, definindo as classes que farão o sistema funcionar, seus atributos e seus métodos.
 
+O diagrama abaixo é dividido por atributos privados e métodos públicos.
+
+Associação simples entre Cliente e ContaBancaria: Cliente tem uma conta bancaria;
+
+Associação direcionada entre ContaBancaria apontando para Investimento, Transacao e CartaoCredito. Relação "TEM UM"
+
 <img width="2110" height="2016" alt="diagrama_de_classes" src="https://github.com/user-attachments/assets/8ef41228-5f3e-4a79-9a94-88d1054d3456" />
 
 <div align="center">

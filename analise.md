@@ -36,7 +36,7 @@ Representa o estado inicial do usuário no aplicativo, onde o visitante deve obr
 ## - Cliente cadastrado: 
 Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator possui acesso completo a aplicação, simula um usário que já utiliza o programa.
 
-<img width="1280" height="3276" alt="Casos_de_uso" src="https://github.com/user-attachments/assets/48fa615a-a81c-4608-b808-fe63da49f063" />
+<img src="Casos_de_uso.png" width="30%" style="padding: 10px">
  
 ## Diagrama de Domínio do problema
 

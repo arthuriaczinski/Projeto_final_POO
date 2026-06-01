@@ -48,7 +48,7 @@ Associação simples entre Cliente e ContaBancaria: Cliente tem uma conta bancar
 
 Associação direcionada entre ContaBancaria apontando para Investimento, Transacao e CartaoCredito. Relação "TEM UM"
 
-<img width="2110" height="2016" alt="diagrama_de_classes" src="https://github.com/user-attachments/assets/8ef41228-5f3e-4a79-9a94-88d1054d3456" />
+<img src="img/diagrama_de_classes.png" width="30%" style="padding: 10px">
 
 <div align="center">
 

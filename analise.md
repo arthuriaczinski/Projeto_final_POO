@@ -47,11 +47,17 @@ Representa o usuário que já passou pelo processo de autenticação, ou atravé
 - Condição: Ator deve estar na tela inicial e já ter cadastrado no aplicativo pelo menos uma vez;
 
 1 - Visitante acessa a tela de login;
+
 2- Visitante insere os dados (CPF e senha) e clica em Entrar;
+
 3- Sistema verifica no .TXT em busca de dados de usuário;
+
 4- Faz um check-up no .TXT pra ver se está de acordo;
+
 5- Caso os dados estiverem de acordo, o login é bem-sucedido;
+
 6- Ator visitante vira Ator investidor;
+
 7- Ator investidor tem acesso total a aplicação.
  
 ## Diagrama de Domínio do problema

@@ -40,6 +40,19 @@ Representa o estado inicial do usuário no aplicativo, onde o visitante deve obr
 Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator possui acesso completo a aplicação, simula um usário que já utiliza o programa.
 
 <img src="img/Casos_de_uso.drawio.png" width="30%" style="padding: 10px">
+
+## Especificação do caso de uso da etapa "Fazer Login"
+- Ator principal: Visitante;
+- Objetivo: Autenticar o ator visitante para liberar acesso completo a carteira de investimentos;
+- Condição: Ator deve estar na tela inicial e já ter cadastrado no aplicativo pelo menos uma vez;
+
+1 - Visitante acessa a tela de login;
+2- Visitante insere os dados (CPF e senha) e clica em Entrar;
+3- Sistema verifica no .TXT em busca de dados de usuário;
+4- Faz um check-up no .TXT pra ver se está de acordo;
+5- Caso os dados estiverem de acordo, o login é bem-sucedido;
+6- Ator visitante vira Ator investidor;
+7- Ator investidor tem acesso total a aplicação.
  
 ## Diagrama de Domínio do problema
 

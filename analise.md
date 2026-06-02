@@ -36,7 +36,7 @@ Para representar adequadamente o controle de acesso e garantir a segurança do s
 ## - Visitante:
 Representa o estado inicial do usuário no aplicativo, onde o visitante deve obrigatoriamente se cadastrar ou realizar o login para interagir com o APP, caso contrário, não terá qualquer permissão ou acesso no APP.
 
-## - Cliente cadastrado: 
+## - Investidor: 
 Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator possui acesso completo a aplicação, simula um usário que já utiliza o programa.
 
 <img src="img/Casos_de_uso.drawio.png" width="30%" style="padding: 10px">

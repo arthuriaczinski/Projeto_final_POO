@@ -62,13 +62,13 @@ Representa o usuário que já passou pelo processo de autenticação, ou atravé
  
 ## Diagrama de Domínio do problema
 
-O Diagrama de Classes a seguir representa a estrutura do aplicativo do banco. Ele serve como o "esqueleto" do código C++, definindo as classes que farão o sistema funcionar, seus atributos e seus métodos.
+O Diagrama de Classes a seguir representa a estrutura do gerenciador de investimnetos. Ele serve como o "esqueleto" do código C++, definindo as classes que farão o sistema funcionar, seus atributos e seus métodos.
 
 O diagrama abaixo é dividido por atributos privados e métodos públicos.
 
-Associação simples entre Cliente e ContaBancaria: Cliente tem uma conta bancaria;
+Relação de hierarquia entre Usuário e investidor;
 
-Associação direcionada entre ContaBancaria apontando para Investimento, Transacao e CartaoCredito. Relação "TEM UM"
+A relação entre Investidor e Investimento é uma composição de 1 pra N (1...*)
 
 <img src="img/diagrama_de_classes.png" width="30%" style="padding: 10px">
 

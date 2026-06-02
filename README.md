@@ -2,11 +2,11 @@
      width="30%"
      style="padding: 10px">
 
-# << Banco arT >>
+# << arT invest >>
 
 ## << Aplicativo do banco e suas funcionalidades >>
 
-> Repositório destinado para o desenvolvimento do projeto final da discipliana PRG22107 - Programação orienta a objeto. 
+> Repositório destinado para o desenvolvimento do projeto final da disciplina PRG22107 - Programação orienta a objeto. 
 > 
 > Aluno: Arthur Duarte Iaczinski
 > 

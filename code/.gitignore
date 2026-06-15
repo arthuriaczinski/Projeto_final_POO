@@ -1,0 +1,9 @@
+*.exe
+*.o
+*.obj
+*.out
+.vscode/
+.vs/
+Thumbs.db
+.qtcreator/
+**build

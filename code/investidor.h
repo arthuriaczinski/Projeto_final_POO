@@ -2,8 +2,6 @@
 #define INVESTIDOR_H
 #include "Usuario.h"
 
-// Hugo Marcondes
-
 class Investidor : public Usuario {
 public:
     Investidor(QString n, QString e, QString c, QString s);

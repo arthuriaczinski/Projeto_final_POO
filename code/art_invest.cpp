@@ -37,7 +37,7 @@ art_invest::art_invest(QWidget *parent)
     inputCpf->setPlaceholderText("Digite seu CPF");
     inputCpf->setStyleSheet(estiloInput);
 
-    connect(inputCpf, &QLineEdit::textEdited, this, &art_invest::formatarCpf);
+    connect(inputCpf, &QLineEdit::textEdited, this, &art_invest::formatarCpf); //
 
     inputSenha = new QLineEdit(caixaLogin);
     inputSenha->setPlaceholderText("Digite sua Senha");
@@ -74,7 +74,7 @@ art_invest::art_invest(QWidget *parent)
     layoutHorizontalGeral->addStretch();
 
     telaCadastro = new QWidget();
-    QHBoxLayout *layoutHorizCad = new QHBoxLayout(telaCadastro);
+    QHBoxLayout *layoutHorizCad = new QHBoxLayout(telaCadastro); // Molas para centralizar
 
     QWidget *caixaCad = new QWidget(telaCadastro);
     caixaCad->setFixedSize(450, 680);
@@ -91,26 +91,21 @@ art_invest::art_invest(QWidget *parent)
     inputNomeCad = new QLineEdit(caixaCad);
     inputNomeCad->setPlaceholderText("Nome Completo");
     inputNomeCad->setStyleSheet(estiloInput);
-
     inputEmailCad = new QLineEdit(caixaCad);
     inputEmailCad->setPlaceholderText("E-mail");
     inputEmailCad->setStyleSheet(estiloInput);
-
     inputCpfCad = new QLineEdit(caixaCad);
     inputCpfCad->setPlaceholderText("CPF");
     inputCpfCad->setStyleSheet(estiloInput);
-
-    connect(inputCpfCad, &QLineEdit::textEdited, this, &art_invest::formatarCpfCadastro); // Liga a formatação em tempo real também no campo do CPF do cadastro
-
+    // Liga a formatação em tempo real também no campo do CPF do cadastro
+    connect(inputCpfCad, &QLineEdit::textEdited, this, &art_invest::formatarCpfCadastro);
     inputSenhaCad = new QLineEdit(caixaCad);
     inputSenhaCad->setPlaceholderText("Crie uma Senha");
     inputSenhaCad->setEchoMode(QLineEdit::Password);
     inputSenhaCad->setStyleSheet(estiloInput);
-
     botaoRegistrar = new QPushButton("Registrar", caixaCad);
     botaoRegistrar->setCursor(Qt::PointingHandCursor);
     botaoRegistrar->setStyleSheet(botaoEntrar->styleSheet()); // Copia o estilo do botão entrar
-
     botaoVoltarLogin = new QPushButton("Voltar", caixaCad);
     botaoVoltarLogin->setCursor(Qt::PointingHandCursor);
     botaoVoltarLogin->setStyleSheet(botaoIrCadastro->styleSheet()); // Copia o estilo do botão secundário
@@ -126,7 +121,6 @@ art_invest::art_invest(QWidget *parent)
     layoutCad->addWidget(botaoRegistrar);
     layoutCad->addWidget(botaoVoltarLogin);
     layoutCad->addStretch();
-
     layoutHorizCad->addStretch();
     layoutHorizCad->addWidget(caixaCad);
     layoutHorizCad->addStretch();
@@ -137,11 +131,9 @@ art_invest::art_invest(QWidget *parent)
     QWidget *caixaCarteira = new QWidget(telaCarteira);
     caixaCarteira->setFixedSize(500, 600);
     caixaCarteira->setStyleSheet("background-color: #2E2E2E; border-radius: 20px;");
-
     QVBoxLayout *layoutCarteira = new QVBoxLayout(caixaCarteira);
     layoutCarteira->setContentsMargins(40, 50, 40, 50);
     layoutCarteira->setSpacing(20);
-
     labelTituloCarteira = new QLabel("Área do Investidor", caixaCarteira);
     labelTituloCarteira->setAlignment(Qt::AlignCenter);
     labelTituloCarteira->setStyleSheet("font-size: 36px; font-weight: bold; color: #FFC107; background-color: transparent;");
@@ -238,7 +230,7 @@ art_invest::art_invest(QWidget *parent)
     QHBoxLayout *layoutHorizVis = new QHBoxLayout(telaVisualizarCarteira);
 
     QWidget *caixaVis = new QWidget(telaVisualizarCarteira);
-    caixaVis->setFixedSize(600, 700); // Mais larga para caber os textos confortavelmente
+    caixaVis->setFixedSize(600, 700);
     caixaVis->setStyleSheet("background-color: #2E2E2E; border-radius: 20px;");
 
     QVBoxLayout *layoutVis = new QVBoxLayout(caixaVis);
@@ -268,7 +260,7 @@ art_invest::art_invest(QWidget *parent)
     QHBoxLayout *layoutHorizVenda = new QHBoxLayout(telaVenderAtivo);
 
     QWidget *caixaVenda = new QWidget(telaVenderAtivo);
-    caixaVenda->setFixedSize(450, 600);
+    caixaVenda->setFixedSize(450, 680);
     caixaVenda->setStyleSheet("background-color: #2E2E2E; border-radius: 20px;");
 
     QVBoxLayout *layoutVenda = new QVBoxLayout(caixaVenda);
@@ -285,7 +277,12 @@ art_invest::art_invest(QWidget *parent)
     listaAtivosVenda = new QListWidget(caixaVenda);
     listaAtivosVenda->setStyleSheet("QListWidget { background-color: #1A1A1A; color: #FFFFFF; border: 1px solid #555555; border-radius: 10px; padding: 10px; font-size: 16px; outline: 0px; } "
                                     "QListWidget::item:selected { background-color: #FF4C4C; color: white; border-radius: 5px; }");
-
+    inputQtdVenda = new QLineEdit(caixaVenda);
+    inputQtdVenda->setPlaceholderText("Quantidade a vender (ex: 12)");
+    inputQtdVenda->setStyleSheet(estiloInput);
+    labelErroVenda = new QLabel("", caixaVenda); // mensagem de erro
+    labelErroVenda->setAlignment(Qt::AlignCenter);
+    labelErroVenda->setStyleSheet("color: #FF4C4C; font-size: 14px; font-weight: bold; background-color: transparent;");
     botaoConfirmarVenda = new QPushButton("Confirmar Venda", caixaVenda);
     botaoConfirmarVenda->setCursor(Qt::PointingHandCursor);
     botaoConfirmarVenda->setStyleSheet("QPushButton { background-color: #FF4C4C; color: #FFFFFF; border-radius: 25px; font-weight: bold; padding: 15px; font-size: 18px; } "
@@ -298,14 +295,14 @@ art_invest::art_invest(QWidget *parent)
     layoutVenda->addWidget(labelTituloVenda);
     layoutVenda->addWidget(labelSubVenda);
     layoutVenda->addWidget(listaAtivosVenda);
-    layoutVenda->addSpacing(20);
+    layoutVenda->addWidget(inputQtdVenda);
+    layoutVenda->addWidget(labelErroVenda);
+    layoutVenda->addSpacing(10);
     layoutVenda->addWidget(botaoConfirmarVenda);
     layoutVenda->addWidget(botaoCancelarVenda);
-
     layoutHorizVenda->addStretch();
     layoutHorizVenda->addWidget(caixaVenda);
     layoutHorizVenda->addStretch();
-
     gerenciadorDeTelas->addWidget(telaLogin);             // Index 0
     gerenciadorDeTelas->addWidget(telaCadastro);          // Index 1
     gerenciadorDeTelas->addWidget(telaCarteira);          // Index 2
@@ -327,7 +324,6 @@ art_invest::art_invest(QWidget *parent)
 
     connect(botaoAcessarCarteira, &QPushButton::clicked, this, &art_invest::irParaVisualizarCarteira);
     connect(botaoVoltarVisCarteira, &QPushButton::clicked, this, &art_invest::voltarDoVisualizarCarteira);
-
     connect(botaoVenderAtivo, &QPushButton::clicked, this, &art_invest::irParaVenderAtivo);
     connect(botaoCancelarVenda, &QPushButton::clicked, this, &art_invest::voltarParaCarteira);
     connect(botaoConfirmarVenda, &QPushButton::clicked, this, &art_invest::venderAtivoSelecionado);
@@ -482,7 +478,6 @@ void art_invest::irParaVisualizarCarteira() {
                 QString nome = dados[2];
                 double preco = dados[3].toDouble();
                 int quantidade = dados[4].toInt();
-
                 double valorTotalDesteAtivo = preco * quantidade;
 
                 // formata até 2 casas decimais e remove virgula
@@ -543,6 +538,8 @@ void art_invest::irParaVisualizarCarteira() {
 
 void art_invest::irParaVenderAtivo() {
     listaAtivosVenda->clear(); // Limpa a lista antiga para evitar duplicados
+    inputQtdVenda->clear();    // Limpa a quantidade anterior
+    labelErroVenda->clear();   // Limpa qualquer mensagem de erro antiga
 
     QFile arquivo("ativos.txt");
     if (arquivo.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -556,14 +553,9 @@ void art_invest::irParaVenderAtivo() {
                 QString tipo = dados[1];
                 QString nome = dados[2];
                 QString quantidade = dados[4];
-
-                // Cria o texto que o usuário vai ler na tela
                 QString textoBonito = tipo + " - " + nome + " | Qtd: " + quantidade;
-
                 QListWidgetItem *item = new QListWidgetItem(textoBonito);
-
                 item->setData(Qt::UserRole, linhaOriginal);
-
                 listaAtivosVenda->addItem(item);
             }
         }
@@ -577,41 +569,29 @@ void art_invest::venderAtivoSelecionado() {
     // Descobre qual item o usuário clicou
     QListWidgetItem *itemSelecionado = listaAtivosVenda->currentItem();
 
-    // Se não selecionou nada e clicou em confirmar, só ignora
+    // Valida se o usuário clicou em algum item da lista
     if (!itemSelecionado) {
+        labelErroVenda->setText("Selecione um ativo na lista!");
         return;
     }
 
+    // Usamos o Qt::UserRole para resgatar a linha do .txt
     QString linhaParaDeletar = itemSelecionado->data(Qt::UserRole).toString();
-
-    QStringList linhasRestantes;
-    bool jaDeletou = false;
-
-// salva na memoria, exceto o que vai ser deletado pelo usuário
-    QFile arquivoLeitura("ativos.txt");
-    if (arquivoLeitura.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QTextStream entrada(&arquivoLeitura);
-        while (!entrada.atEnd()) {
-            QString linhaAtual = entrada.readLine();
-
-            // Remove apenas a primeira vez que achar
-            if (linhaAtual == linhaParaDeletar && !jaDeletou) {
-                jaDeletou = true; // se achar, pula
-            } else {
-                linhasRestantes.append(linhaAtual); // Guarda o resto
-            }
-        }
-        arquivoLeitura.close();
+    QStringList dados = linhaParaDeletar.split(",");
+    QString nomeAtivo = dados[2];  // O nome exato que está gravado no .txt é o índice 2
+    int qtdVenda = inputQtdVenda->text().toInt();  // Captura a quantidade digitada no QLineEdit
+    if (qtdVenda <= 0) {
+        labelErroVenda->setText("Digite uma quantidade maior que zero!");
+        return;
     }
+    Investimento inv(cpfLogadoAtual, "", "", 0, 0);
 
-    QFile arquivoEscrita("ativos.txt");
-    if (arquivoEscrita.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream saida(&arquivoEscrita);
-        for (int i = 0; i < linhasRestantes.size(); ++i) {
-            saida << linhasRestantes[i] << "\n";
-        }
-        arquivoEscrita.close();
+    if (inv.venderAtivo(cpfLogadoAtual, nomeAtivo, qtdVenda)) {
+        inputQtdVenda->clear();
+        labelErroVenda->clear();
+        gerenciadorDeTelas->setCurrentIndex(2);
+    } else {
+        // Se a função venderAtivo retornou false, a quantidade que o usuário digitou é maior do que ele tem de ativoss
+        labelErroVenda->setText("Erro: Você não possui essa quantidade!");
     }
-
-    gerenciadorDeTelas->setCurrentIndex(2);
 }

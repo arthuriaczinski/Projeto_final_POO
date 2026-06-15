@@ -16,9 +16,8 @@
 #include <QTextStream>
 #include <QStringList>
 
-
-#include "investidor.h";
-#include "investimento.h";
+#include "investidor.h"
+#include "investimento.h"
 
 class art_invest : public QMainWindow
 {
@@ -51,14 +50,12 @@ private slots:
 private:
     QStackedWidget *gerenciadorDeTelas;
     QString cpfLogadoAtual;
-
     QWidget *telaLogin;
     QLineEdit *inputCpf;
     QLineEdit *inputSenha;
     QPushButton *botaoEntrar;
     QPushButton *botaoIrCadastro;
     QLabel *labelErro;
-
     QWidget *telaCadastro;
     QLineEdit *inputNomeCad;
     QLineEdit *inputEmailCad;
@@ -66,14 +63,12 @@ private:
     QLineEdit *inputSenhaCad;
     QPushButton *botaoRegistrar;
     QPushButton *botaoVoltarLogin;
-
     QWidget *telaCarteira;
     QLabel *labelTituloCarteira;
     QPushButton *botaoAcessarCarteira;
     QPushButton *botaoAdicionarAtivo;
     QPushButton *botaoVenderAtivo;
     QPushButton *botaoSair;
-
     QWidget *telaAdicionarAtivo;
     QComboBox *comboTipoAtivo;
     QLineEdit *inputNomeAtivo;
@@ -81,13 +76,13 @@ private:
     QLineEdit *inputQuantidadeAtivo;
     QPushButton *botaoSalvarAtivo;
     QPushButton *botaoCancelarAtivo;
-
     QWidget *telaVisualizarCarteira;
     QTextEdit *textoCarteira;
     QPushButton *botaoVoltarVisCarteira;
-
     QWidget *telaVenderAtivo;
     QListWidget *listaAtivosVenda;
+    QLineEdit *inputQtdVenda;
+    QLabel *labelErroVenda;
     QPushButton *botaoConfirmarVenda;
     QPushButton *botaoCancelarVenda;
 };

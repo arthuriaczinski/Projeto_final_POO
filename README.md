@@ -4,7 +4,7 @@
 
 # << arT invest >>
 
-## << Aplicativo do banco e suas funcionalidades >>
+## << Aplicativo de investimentos e suas funcionalidades >>
 
 > Repositório destinado para o desenvolvimento do projeto final da disciplina PRG22107 - Programação orienta a objeto. 
 > 

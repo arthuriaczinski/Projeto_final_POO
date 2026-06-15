@@ -37,7 +37,7 @@ art_invest::art_invest(QWidget *parent)
     inputCpf->setPlaceholderText("Digite seu CPF");
     inputCpf->setStyleSheet(estiloInput);
 
-    connect(inputCpf, &QLineEdit::textEdited, this, &art_invest::formatarCpf); //
+    connect(inputCpf, &QLineEdit::textEdited, this, &art_invest::formatarCpf);
 
     inputSenha = new QLineEdit(caixaLogin);
     inputSenha->setPlaceholderText("Digite sua Senha");
@@ -135,7 +135,7 @@ art_invest::art_invest(QWidget *parent)
     QHBoxLayout *layoutHorizCarteira = new QHBoxLayout(telaCarteira);
 
     QWidget *caixaCarteira = new QWidget(telaCarteira);
-    caixaCarteira->setFixedSize(500, 600); // Card ligeiramente mais largo para os menus
+    caixaCarteira->setFixedSize(500, 600);
     caixaCarteira->setStyleSheet("background-color: #2E2E2E; border-radius: 20px;");
 
     QVBoxLayout *layoutCarteira = new QVBoxLayout(caixaCarteira);
@@ -587,7 +587,7 @@ void art_invest::venderAtivoSelecionado() {
     QStringList linhasRestantes;
     bool jaDeletou = false;
 
-// Lê todo o arquivo e salva na memória TUDO, exceto a linha que vai ser deletada
+// salva na memoria, exceto o que vai ser deletado pelo usuário
     QFile arquivoLeitura("ativos.txt");
     if (arquivoLeitura.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream entrada(&arquivoLeitura);
@@ -596,7 +596,7 @@ void art_invest::venderAtivoSelecionado() {
 
             // Remove apenas a primeira vez que achar
             if (linhaAtual == linhaParaDeletar && !jaDeletou) {
-                jaDeletou = true; // Achou e pulou! Não salva na memória
+                jaDeletou = true; // se achar, pula
             } else {
                 linhasRestantes.append(linhaAtual); // Guarda o resto
             }

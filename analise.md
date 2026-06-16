@@ -39,7 +39,7 @@ Representa o estado inicial do usuário no aplicativo, onde o visitante deve obr
 ## - Investidor: 
 Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator possui acesso completo a aplicação, simula um usário que já utiliza o programa.
 
-<img src="img/Casos_de_uso.drawio.png" width="30%" style="padding: 10px">
+<img src="img/Casos_de_uso_att.drawio.png" width="30%" style="padding: 10px">
 
 ## Especificação do caso de uso da etapa "Fazer Login"
 - Ator principal: Visitante;

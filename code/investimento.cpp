@@ -7,11 +7,12 @@ Investimento::Investimento(QString cpf, QString t, QString n, double p, int q)
     : cpfDono(cpf), tipo(t), nome(n), preco(p), quantidade(q) {}
 
 bool Investimento::salvarNoArquivo() const {
-    QFile arquivoLeitura("ativos.txt");
+    QString nomeArquivo = "ativos_" + cpfDono + ".txt";
+    QFile arquivoLeitura(nomeArquivo);
     QStringList linhasRestantes;
     bool ativoEncontrado = false;
 
-    if (arquivoLeitura.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (arquivoLeitura.open(QIODevice::ReadOnly | QIODevice::Text)) { // procura se ja tem o investimento que vai ser colocado
         QTextStream entrada(&arquivoLeitura);
         while (!entrada.atEnd()) {
             QString linha = entrada.readLine();
@@ -23,31 +24,37 @@ bool Investimento::salvarNoArquivo() const {
                 double precoAntigo = dados[3].toDouble();
                 int quantidadeAntiga = dados[4].toInt();
 
-                // soma a quantidade de ativos do mesmo tipo
-                int quantidadeFinal = quantidadeAntiga + quantidade;
+                if (tipo == "Poupança") {
+                    double novoSaldo = precoAntigo + preco;
+                    QString novaLinha = cpfDono + "," + tipo + "," + nome.toUpper() + "," + QString::number(novoSaldo, 'f', 2) + ",1";
+                    linhasRestantes.append(novaLinha);
+                } else {
+                    // soma a quantidade de ativos do mesmo tipo
+                    int quantidadeFinal = quantidadeAntiga + quantidade;
 
-                // calculo do preço medio
-                double precoMedio = ((precoAntigo * quantidadeAntiga) + (preco * quantidade)) / quantidadeFinal;
+                    // calculo do preço medio
+                    double precoMedio = ((precoAntigo * quantidadeAntiga) + (preco * quantidade)) / quantidadeFinal;
 
-                QString novaLinha = cpfDono + "," + tipo + "," + nome.toUpper() + "," + QString::number(precoMedio, 'f', 2) + "," + QString::number(quantidadeFinal);
-                linhasRestantes.append(novaLinha);
+                    QString novaLinha = cpfDono + "," + tipo + "," + nome.toUpper() + "," + QString::number(precoMedio, 'f', 2) + "," + QString::number(quantidadeFinal);
+                    linhasRestantes.append(novaLinha);
+                }
 
                 ativoEncontrado = true; // Se achou, soma
             } else {
+
                 linhasRestantes.append(linha); // senão achar, mantem tudo como era antes
             }
         }
         arquivoLeitura.close();
     }
 
-    // Se leu o arquivo todo e não encontrou (é um ativo inédito), adiciona-o ao final
+    // Se leu o arquivo todo e não encontrou, adiciona no final
     if (!ativoEncontrado) {
         QString novaLinha = cpfDono + "," + tipo + "," + nome.toUpper() + "," + QString::number(preco, 'f', 2) + "," + QString::number(quantidade);
         linhasRestantes.append(novaLinha);
     }
 
-    // 2. REESCREVE O ARQUIVO COM OS DADOS ATUALIZADOS
-    QFile arquivoEscrita("ativos.txt");
+    QFile arquivoEscrita(nomeArquivo);
     if (arquivoEscrita.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream saida(&arquivoEscrita);
         for (int i = 0; i < linhasRestantes.size(); ++i) {
@@ -60,8 +67,9 @@ bool Investimento::salvarNoArquivo() const {
     return false;
 }
 
-bool Investimento::venderAtivo(QString cpfDono, QString nomeAtivo, int qtdVenda) {
-    QFile arquivoLeitura("ativos.txt");
+bool Investimento::venderAtivo(QString cpfDono, QString nomeAtivo, double qtdVenda) {
+    QString nomeArquivo = "ativos_" + cpfDono + ".txt";
+    QFile arquivoLeitura(nomeArquivo);
     QStringList linhasRestantes;
     bool sucesso = false;
 
@@ -70,23 +78,38 @@ bool Investimento::venderAtivo(QString cpfDono, QString nomeAtivo, int qtdVenda)
         while (!entrada.atEnd()) {
             QString linha = entrada.readLine();
             QStringList dados = linha.split(",");
+            if (dados.size() == 5 && dados[0] == cpfDono && dados[2].toUpper() == nomeAtivo.toUpper()) { // Localiza o ativo do usuário pelo CPF e nome
 
-            // Localiza o ativo do usuário pelo CPF e nome (convertido para maiúsculas para comparar)
-            if (dados.size() == 5 && dados[0] == cpfDono && dados[2].toUpper() == nomeAtivo.toUpper()) {
-                int qtdAtual = dados[4].toInt();
+                if (dados[1] == "Poupança") {
+                    double saldoAtual = QString(dados[3]).replace(",", ".").toDouble();
 
-                if (qtdAtual > qtdVenda) {
-                    // Venda parcial: mantém o ativo com quantidade reduzida
-                    int novaQtd = qtdAtual - qtdVenda;
-                    QString novaLinha = dados[0] + "," + dados[1] + "," + dados[2] + "," + dados[3] + "," + QString::number(novaQtd);
-                    linhasRestantes.append(novaLinha);
-                    sucesso = true;
-                } else if (qtdAtual == qtdVenda) {
-                    // Venda total: não adiciona a linha de volta (remove do arquivo)
-                    sucesso = true;
+                    if (saldoAtual > qtdVenda) {
+                        double novoSaldo = saldoAtual - qtdVenda;
+                        QString novaLinha = dados[0] + "," + dados[1] + "," + dados[2] + "," + QString::number(novoSaldo, 'f', 2) + ",1";
+                        linhasRestantes.append(novaLinha);
+                        sucesso = true;
+                    } else if (abs(saldoAtual - qtdVenda) < 0.01) {
+                        sucesso = true; // saque total zera a conta
+                    } else {
+                        linhasRestantes.append(linha);// Tentou sacar mais do que tem
+                    }
                 } else {
-                    // Tentou vender mais do que tem: mantém como estava (erro)
-                    linhasRestantes.append(linha);
+                    int qtdAtual = dados[4].toInt();
+                    int qtdVendaInt = static_cast<int>(qtdVenda); // Converte de volta para int para ações
+
+                    if (qtdAtual > qtdVendaInt) {
+
+                        int novaQtd = qtdAtual - qtdVendaInt; // venda parcial do ativo
+                        QString novaLinha = dados[0] + "," + dados[1] + "," + dados[2] + "," + dados[3] + "," + QString::number(novaQtd);
+                        linhasRestantes.append(novaLinha);
+                        sucesso = true;
+                    } else if (qtdAtual == qtdVendaInt) {
+
+                        sucesso = true;// venda total
+                    } else {
+
+                        linhasRestantes.append(linha);// Tentou vender mais do que tem
+                    }
                 }
             } else {
                 linhasRestantes.append(linha);
@@ -96,7 +119,7 @@ bool Investimento::venderAtivo(QString cpfDono, QString nomeAtivo, int qtdVenda)
     }
 
     if (sucesso) {
-        QFile arquivoEscrita("ativos.txt");
+        QFile arquivoEscrita(nomeArquivo);
         if (arquivoEscrita.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QTextStream saida(&arquivoEscrita);
             for (const QString &l : linhasRestantes) saida << l << "\n";

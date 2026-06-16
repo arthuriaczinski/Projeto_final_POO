@@ -11,7 +11,8 @@ private:
     int quantidade;
 public:
     Investimento(QString cpf, QString t, QString n, double p, int q);
-    bool venderAtivo(QString cpfDono, QString nomeAtivo, int qtdVenda);
+    bool venderAtivo(QString cpfDono, QString nomeAtivo, double qtdVenda);
+
     bool salvarNoArquivo() const;
 };
 #endif

@@ -32,20 +32,17 @@ private slots:
     void irParaCadastro();
     void voltarParaLogin();
     void formatarCpfCadastro(const QString &texto);
-
     void confirmarCadastro();
     void realizarLogin();
     void realizarLogout();
-
     void irParaAdicionarAtivo();
     void voltarParaCarteira();
     void salvarAtivo();
-
     void irParaVisualizarCarteira();
     void voltarDoVisualizarCarteira();
-
     void irParaVenderAtivo();
     void venderAtivoSelecionado();
+    void alterarFormularioAtivo(const QString &tipo);
 
 private:
     QStackedWidget *gerenciadorDeTelas;

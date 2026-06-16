@@ -70,7 +70,7 @@ Relação de hierarquia entre Usuário e investidor;
 
 A relação entre Investidor e Investimento é uma composição de 1 pra N (1...*)
 
-<img src="img/Diagrama_de_classe_att.drawio" width="30%" style="padding: 10px">
+<img src="img/Diagrama_de_classe_att.drawio.png" width="30%" style="padding: 10px">
 
 <div align="center">
 

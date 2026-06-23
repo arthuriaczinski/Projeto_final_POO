@@ -39,7 +39,7 @@ Representa o estado inicial do usuário no aplicativo, onde o visitante deve obr
 ## - Investidor: 
 Representa o usuário que já passou pelo processo de autenticação, ou através de um novo registro, ou um login com uma conta já existente. Esse ator possui acesso completo a aplicação, simula um usário que já utiliza o programa.
 
-<img src="img/Casos_de_uso.drawio.png" width="30%" style="padding: 10px">
+<img src="img/Casos_de_uso_att.drawio.png" width="30%" style="padding: 10px">
 
 ## Especificação do caso de uso da etapa "Fazer Login"
 - Ator principal: Visitante;
@@ -62,15 +62,15 @@ Representa o usuário que já passou pelo processo de autenticação, ou atravé
  
 ## Diagrama de Domínio do problema
 
-O Diagrama de Classes a seguir representa a estrutura do gerenciador de investimnetos. Ele serve como o "esqueleto" do código C++, definindo as classes que farão o sistema funcionar, seus atributos e seus métodos.
+O Diagrama de Classes a seguir representa a estrutura do gerenciador de investimentos. Ele serve como o "esqueleto" do código C++, definindo as classes que farão o sistema funcionar, seus atributos e seus métodos.
 
-O diagrama abaixo é dividido por atributos privados e métodos públicos.
+O diagrama abaixo é dividido por atributos (protegidos e privados) e métodos públicos.
 
-Relação de hierarquia entre Usuário e investidor;
+Relação de herançaentre Usuário e Investidor;
 
-A relação entre Investidor e Investimento é uma composição de 1 pra N (1...*)
+A relação entre Investidor e Investimento é uma associação de 1 para N (0..*)."
 
-<img src="img/diagrama_de_classes.png" width="30%" style="padding: 10px">
+<img src="img/Diagrama_de_classe_att.drawio.png" width="30%" style="padding: 10px">
 
 <div align="center">
 

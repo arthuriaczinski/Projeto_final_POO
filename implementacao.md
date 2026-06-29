@@ -44,9 +44,7 @@ QIODevice: Permite realizar a aquisição de dados do .TXT;
 QFile: Abre o arquivo .TXT
 
 QTextStream: Faz a aquisição dos dados no arquivo .TXT
->
->
->
+
 
 <div align="center">
 

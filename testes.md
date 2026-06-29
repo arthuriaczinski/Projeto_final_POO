@@ -2,6 +2,8 @@
 
 O processo de validação da aplicação foi dividido nas seguintes etapas;
 
+## Validação da aplicação
+
 Simulação com dados de login incorretos;
 
 Simulação de diferentes sessões com diferentes usuário realizando compra e venda de ações;

@@ -8,7 +8,9 @@ A implementação utilizou a linguagem de programação C++, baseada no paradigm
 Principais bibliotecas utilizadas e suas utilidades:
 
 QApplication: Programa fica em execução esperando interações do usuário;
+
 QMainWindow: Cria janela nativa padrão do sistema;
+
 QWidget: Utilizada para criar as telas do sistema;
 
 QStackedWidget: Permite entrar dentro de outros menus, sem abrir uma janela separada;

@@ -4,7 +4,7 @@ A solução proposta pela aplicação arT invest, é a de realizar o controle de
 
 A implementação utilizou a linguagem de programação C++, baseada no paradigma de Programação orientada a objetos, garantindo encapsulamento, herança e reutilização de código, quando aplicável. Para criação da interface gráfica, utilizou-se o QT Creator, sendo a parte gráfica, totalmente implementada por linha de códigos, não foi utilizado a parte de UI do QT.
 
-Principais bibliotecas utilizadas e suas utilidades:
+## Principais bibliotecas utilizadas e suas utilidades:
 
 QApplication: Programa fica em execução esperando interações do usuário;
 

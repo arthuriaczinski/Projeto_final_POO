@@ -233,7 +233,7 @@ art_invest::art_invest(QWidget *parent)
     QHBoxLayout *layoutHorizVis = new QHBoxLayout(telaVisualizarCarteira);
 
     QWidget *caixaVis = new QWidget(telaVisualizarCarteira);
-    caixaVis->setFixedSize(600, 700); // Mais larga para caber os textos confortavelmente
+    caixaVis->setFixedSize(600, 500); // Mais larga para caber os textos
     caixaVis->setStyleSheet("background-color: #2E2E2E; border-radius: 20px;");
 
     QVBoxLayout *layoutVis = new QVBoxLayout(caixaVis);

@@ -1,4 +1,6 @@
 # Instruções para compilação e execução do sistema
 
->[!NOTE]
-> Incluir todas as informações necessárias para compilar e executar o programa com sucesso.
+## Pré-requisitos:
+- QT Framework (v5.15 ou superior) e QT Creator;
+- Compilador C++.
+

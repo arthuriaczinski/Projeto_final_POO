@@ -1,6 +1,6 @@
 # Testes
 
-O processo de validação da aplicação foi dividido em etapas;
+O processo de validação da aplicação foi dividido nas seguintes etapas;
 
 Simulação com dados de login incorretos;
 
@@ -14,7 +14,7 @@ Para poupança durante a venda para saldos como 50,000001, é feito uma verifica
 
 Teste na adição de valores de ativos com virgula;
 
-Verificação do cálculo de valor médio após compra do mesmo ativo, porém com valor diferente;
+Verificação do cálculo de valor médio após compra do mesmo ativo, porém com valor diferente.
 
 <div align="center">
 

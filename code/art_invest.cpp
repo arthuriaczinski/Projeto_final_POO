@@ -53,6 +53,10 @@ art_invest::art_invest(QWidget *parent)
     botaoEntrar->setStyleSheet("QPushButton { background-color: #FFC107; color: #000000; border-radius: 25px; font-weight: bold; padding: 15px; font-size: 18px; } "
                                "QPushButton:hover { background-color: #E0A800; }");
 
+    // Conecta o pressionar da tecla Enter nos campos de texto ao clique do botão Entrar
+    connect(inputCpf, &QLineEdit::returnPressed, botaoEntrar, &QPushButton::click);
+    connect(inputSenha, &QLineEdit::returnPressed, botaoEntrar, &QPushButton::click);
+
     botaoIrCadastro = new QPushButton("Criar Conta", caixaLogin);  // cria um botão clicavel
     botaoIrCadastro->setCursor(Qt::PointingHandCursor);
     botaoIrCadastro->setStyleSheet("QPushButton { background-color: transparent; color: #FFC107; border: 2px solid #FFC107; border-radius: 25px; font-weight: bold; padding: 15px; font-size: 18px; } "

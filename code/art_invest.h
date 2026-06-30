@@ -15,6 +15,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QStringList>
+#include <QApplication>
 
 #include "investidor.h"
 #include "investimento.h"

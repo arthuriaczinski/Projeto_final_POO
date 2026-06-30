@@ -4,6 +4,9 @@ art_invest::art_invest(QWidget *parent)
     : QMainWindow(parent) // Chama o construtor da classe mãe qmainwindow, gera uma janela pique windows/mac
 {
 
+    QFont fonte("Roboto", 10); //Fonte da letra
+    QApplication::setFont(fonte);
+
     this->setWindowTitle("arT Invest - Desktop Edition"); // Título da janela na barra superior
 
     this->setMinimumSize(800, 600); // Define apenas um tamanho mínimo de tela

@@ -6,8 +6,6 @@ A implementação utilizou a linguagem de programação C++, baseada no paradigm
 
 ## Principais bibliotecas utilizadas e suas utilidades:
 
-QApplication: Programa fica em execução esperando interações do usuário;
-
 QMainWindow: Cria janela nativa padrão do sistema;
 
 QWidget: Utilizada para criar as telas do sistema;
@@ -42,7 +40,9 @@ QIODevice: Permite realizar a aquisição de dados do .TXT;
 
 QFile: Abre o arquivo .TXT;
 
-QTextStream: Faz a aquisição dos dados no arquivo .TXT.
+QTextStream: Faz a aquisição dos dados no arquivo .TXT;
+
+QApplication: Utilizado pra alterar a letra fonte da aplicação.
 
 <div align="center">
 

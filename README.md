@@ -6,7 +6,7 @@
 
 ## << Aplicativo de investimentos e suas funcionalidades >>
 
-> Repositório destinado para o desenvolvimento do projeto final da disciplina PRG22107 - Programação orienta a objeto. 
+> Repositório destinado para o desenvolvimento do projeto final da disciplina - Programação orienta a objeto. 
 > 
 > Aluno: Arthur Duarte Iaczinski
 > 

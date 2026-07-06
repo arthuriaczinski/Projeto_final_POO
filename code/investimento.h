@@ -9,10 +9,20 @@ private:
     QString nome;
     double preco;
     int quantidade;
+
 public:
     Investimento(QString cpf, QString t, QString n, double p, int q);
-    bool venderAtivo(QString cpfDono, QString nomeAtivo, double qtdVenda);
 
+    bool vender(double qtdVenda) const;
     bool salvarNoArquivo() const;
+
+    // MÉTODOS DE OOP PURO:
+    // A classe gerencia seus próprios dados
+    QString getNome() const { return nome; }
+    QString getTipo() const { return tipo; }
+    QString getCpfDono() const { return cpfDono; }
+
+    // NOVA FUNÇÃO: A regra de negócio de somar a carteira sai da tela e vem para a classe
+    static QString gerarRelatorioCarteira(QString cpfDono);
 };
 #endif

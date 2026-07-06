@@ -71,20 +71,20 @@ bool Investimento::salvarNoArquivo() const { // cria o txt
     return false;
 }
 
-bool Investimento::venderAtivo(QString cpfDono, QString nomeAtivo, double qtdVenda) {
-    QString nomeArquivo = "ativos_" + cpfDono + ".txt";
+bool Investimento::vender(double qtdVenda) const {
+    QString nomeArquivo = "ativos_" + this->cpfDono + ".txt";
     QFile arquivoLeitura(nomeArquivo);
     QStringList linhasRestantes;
     bool sucesso = false;
 
-    QString nomeLimpo = nomeAtivo.trimmed().toUpper();
+    QString nomeLimpo = this->nome.trimmed().toUpper();
 
     if (arquivoLeitura.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream entrada(&arquivoLeitura);
         while (!entrada.atEnd()) {
             QString linha = entrada.readLine();
             QStringList dados = linha.split(",");
-            if (dados.size() == 5 && dados[0] == cpfDono && dados[2].trimmed().toUpper() == nomeLimpo) { // Localiza o ativo do usuário pelo CPF e nome
+            if (dados.size() == 5 && dados[0] == this->cpfDono && dados[2].trimmed().toUpper() == nomeLimpo) { // Localiza o ativo do usuário pelo CPF e nome
 
                 if (dados[1] == "Poupança") {
                     double saldoAtual = QString(dados[3]).replace(",", ".").toDouble();
@@ -133,4 +133,89 @@ bool Investimento::venderAtivo(QString cpfDono, QString nomeAtivo, double qtdVen
         }
     }
     return sucesso;
+}
+
+QString Investimento::gerarRelatorioCarteira(QString cpfDono) { // lista de ativos de cada tipo
+    QString listaFii = "";
+    QString listaAcoesBr = "";
+    QString listaAcoesAm = "";
+    QString listaPoupanca = "";
+
+    double totalFii = 0, totalAcoesBr = 0, totalAcoesAm = 0, totalPoupanca = 0; // soma valor de cada tipo de ativo
+
+    QString nomeArquivo = "ativos_" + cpfDono + ".txt"; // monta arquivo de ativos
+    QFile arquivo(nomeArquivo); // cria arquivo
+    if (arquivo.open(QIODevice::ReadOnly | QIODevice::Text)) { // deixa em modo readonly
+        QTextStream entrada(&arquivo);
+
+        while (!entrada.atEnd()) {
+            QString linha = entrada.readLine(); // guarda linha de texto na variavel linha
+            QStringList dados = linha.split(","); // quando acha uma , guarda em dados
+
+            if (dados.size() == 5 && dados[0] == cpfDono) { // verifica se foi separado em 5 pedaços
+                QString tipo = dados[1]; // guarda cada pedaço de dados na variavel certa
+                QString nome = dados[2];
+                double preco = dados[3].toDouble(); //transforrma em double
+                int quantidade = dados[4].toInt(); // tranforma em int
+                double valorTotalDesteAtivo = preco * quantidade; // valor total
+
+                // formata até 2 casas decimais e remove virgula
+                QString precoBR = QString::number(preco, 'f', 2).replace(".", ","); // faz o usuário ver , ao invés de .
+                QString totalBR = QString::number(valorTotalDesteAtivo, 'f', 2).replace(".", ",");
+
+                QString textoAtivo;
+                if (tipo == "Poupança") {
+                    textoAtivo = QString("- %1 | Saldo: R$ %2\n") // usado %1 e %2 pra escrita e interpretação mais facil
+                                     .arg(nome)
+                                     .arg(precoBR);
+                } else {
+                    textoAtivo = QString("- %1 | Qtd: %2 | Preço Médio: R$ %3 | Subtotal: R$ %4\n")
+                                     .arg(nome)
+                                     .arg(quantidade)
+                                     .arg(precoBR)
+                                     .arg(totalBR);
+                }
+                //dependendo do tipo, vai jogar determinado texto pro usuario ver
+                if (tipo == "FII") {
+                    listaFii += textoAtivo;
+                    totalFii += valorTotalDesteAtivo;
+                } else if (tipo == "Ações brasileiras") {
+                    listaAcoesBr += textoAtivo;
+                    totalAcoesBr += valorTotalDesteAtivo;
+                } else if (tipo == "Ações americanas") {
+                    listaAcoesAm += textoAtivo;
+                    totalAcoesAm += valorTotalDesteAtivo;
+                } else if (tipo == "Poupança") {
+                    listaPoupanca += textoAtivo;
+                    totalPoupanca += valorTotalDesteAtivo;
+                }
+            }
+        }
+        arquivo.close(); // quando terminar, fecha o arquivo
+    }
+
+    QString relatorioFinal = "";
+    // senão estiver vazio, escreve cada tipo de ativo da forma abaixo para o usuário ver
+    if (!listaFii.isEmpty()) {
+        relatorioFinal += "=== FIIs (Total: R$ " + QString::number(totalFii, 'f', 2).replace(".", ",") + ") ===\n" + listaFii + "\n";
+    }
+    if (!listaAcoesBr.isEmpty()) {
+        relatorioFinal += "=== Ações Brasileiras (Total: R$ " + QString::number(totalAcoesBr, 'f', 2).replace(".", ",") + ") ===\n" + listaAcoesBr + "\n";
+    }
+    if (!listaAcoesAm.isEmpty()) {
+        relatorioFinal += "=== Ações Americanas (Total: R$ " + QString::number(totalAcoesAm, 'f', 2).replace(".", ",") + ") ===\n" + listaAcoesAm + "\n";
+    }
+    if (!listaPoupanca.isEmpty()) {
+        relatorioFinal += "=== Poupança (Total: R$ " + QString::number(totalPoupanca, 'f', 2).replace(".", ",") + ") ===\n" + listaPoupanca + "\n";
+    }
+
+    if (relatorioFinal.isEmpty()) {
+        relatorioFinal = "Sua carteira está vazia.\nVolte e adicione seus primeiros investimentos!";
+    } else {
+        double patrimonioTotal = totalFii + totalAcoesBr + totalAcoesAm + totalPoupanca;
+        relatorioFinal += "\n-------------------------------------------------\n";
+        relatorioFinal += "PATRIMÔNIO TOTAL: R$ " + QString::number(patrimonioTotal, 'f', 2).replace(".", ",");
+    }
+
+    return relatorioFinal;
 }

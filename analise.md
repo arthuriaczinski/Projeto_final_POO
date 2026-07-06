@@ -1,7 +1,7 @@
 ## Descrição Geral do domínio do problema
 
 O sistema proposto visa simular um aplicativo de investimentos. Com uma interface simplificada e minimalista.
-O intuito do programa é organizar e gerir os investimentos do usuário de uma maneira fácil e intuitiva. É possível adicionar novos ativos, adicionar ativos já comprados anteriormente, remover/vender ativios e acompanhar o lucro consolidado do ativo.
+O intuito do programa é organizar e gerir os investimentos do usuário de uma maneira fácil e intuitiva. É possível adicionar novos ativos, adicionar ativos já comprados anteriormente, remover/vender ativos.
 
 ## Requisitos funcionais 
 01 - Cadastro do investidor;
@@ -70,7 +70,7 @@ Relação de herançaentre Usuário e Investidor;
 
 A relação entre Investidor e Investimento é uma associação de 1 para N (0..*)."
 
-<img src="img/Diagrama_de_classe_att.drawio.png" width="30%" style="padding: 10px">
+<img src="img/Diagrama sem nome.drawio.png" width="30%" style="padding: 10px">
 
 <div align="center">
 

@@ -12,7 +12,6 @@ TelaLogin::TelaLogin(QWidget *parent) : QWidget(parent) {
     caixaLogin->setFixedSize(450, 600); // tamanho da tela de login
     caixaLogin->setStyleSheet("background-color: #2E2E2E; border-radius: 20px;"); // Bordas arredondadas
 
-    // --- EFEITO DE SOMBRA ---
     QGraphicsDropShadowEffect *sombraLogin = new QGraphicsDropShadowEffect(this);
     sombraLogin->setBlurRadius(20);
     sombraLogin->setColor(QColor(0, 0, 0, 150));

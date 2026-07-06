@@ -70,7 +70,7 @@ Relação de herançaentre Usuário e Investidor;
 
 A relação entre Investidor e Investimento é uma associação de 1 para N (0..*)."
 
-<img src="img/Diagrama sem nome.drawio.png" width="30%" style="padding: 10px">
+<img src="img/classe_att.drawio.png" width="30%" style="padding: 10px">
 
 <div align="center">
 

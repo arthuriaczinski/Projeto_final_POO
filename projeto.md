@@ -1,7 +1,7 @@
 # Projeto orientado a objeto
 
 ## Diagrama de classe:
-<img src="img/Diagrama sem nome.drawio.png" width="30%" style="padding: 10px">
+<img src="img/classe_att.png" width="30%" style="padding: 10px">
 
 ## Diagrama de caso de uso:
 <img src="img/Casos_de_uso_att.drawio.png" width="30%" style="padding: 10px">
